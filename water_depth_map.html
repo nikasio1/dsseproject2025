@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d54b492cd9461c26ea499f27e337565c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+    <h1 style="
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-family: Arial, sans-serif;
+        font-weight: bold
+        font-size: 16px;
+        text-align: center;
+    ">
+        Water Depth Prediction Map
+    </h3>
+    
+            <div class="folium-map" id="map_d54b492cd9461c26ea499f27e337565c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d54b492cd9461c26ea499f27e337565c = L.map(
+                "map_d54b492cd9461c26ea499f27e337565c",
+                {
+                    center: [51.9250885, 5.610526],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_217cd88c4134c063ccd61e1e79944a70 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_217cd88c4134c063ccd61e1e79944a70.addTo(map_d54b492cd9461c26ea499f27e337565c);
+        
+    
+            var marker_8ce899789418a7e8fa09067a366bb6c5 = L.marker(
+                [51.949326, 5.590224],
+                {
+}
+            ).addTo(map_d54b492cd9461c26ea499f27e337565c);
+        
+    
+            var icon_795b40803d110a5219ba7ea03cd780be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_8ce899789418a7e8fa09067a366bb6c5.setIcon(icon_795b40803d110a5219ba7ea03cd780be);
+        
+    
+        var popup_29664373adf5917678bc7f6ea82eec20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6efecb356a29025e7860442b692a78a6 = $(`<div id="html_6efecb356a29025e7860442b692a78a6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; padding: 10px; background-color: white; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.3);">         <h4 style="margin: 0 0 10px; font-size: 14px;">Grebbe Water Depth Scale</h4>         <table style="width: 100%; border-collapse: collapse;">              <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: brown; margin-right: 8px;"></span>                 <b>Low</b>: < 585cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: green; margin-right: 8px;"></span>                 <b>Normal</b>: 586 - 685cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: lightgreen; margin-right: 8px;"></span>                 <b>Slightly raised</b>: 686 - 750cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: yellow; margin-right: 8px;"></span>                 <b>Elevated</b>: 751 - 905cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: orange; margin-right: 8px;"></span>                 <b>High</b>: 906 - 1025cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: red; margin-right: 8px;"></span>                 <b>Extremely high</b>: > 1025cm             </td>         </tr>                  </table>     </div>     </div>`)[0];
+                popup_29664373adf5917678bc7f6ea82eec20.setContent(html_6efecb356a29025e7860442b692a78a6);
+            
+        
+
+        marker_8ce899789418a7e8fa09067a366bb6c5.bindPopup(popup_29664373adf5917678bc7f6ea82eec20)
+        ;
+
+        
+    
+    
+            marker_8ce899789418a7e8fa09067a366bb6c5.bindTooltip(
+                `<div>
+                     Grebbe: 720 cm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1cfcd571b777624ed52790c52b94cfce = L.marker(
+                [51.949326, 5.590224],
+                {
+}
+            ).addTo(map_d54b492cd9461c26ea499f27e337565c);
+        
+    
+            var div_icon_f4a898e046086e14a38dd78a1f59ab75 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            font-size: 10pt; \n            color: black; \n            font-weight: bold; \n            background-color: rgba(255, 255, 255, 0.8); \n            padding: 4px 15px; \n            border-radius: 4px; \n            border: 1px solid #ccc; \n            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);\n            width: fit-content; \n        \"\u003e\n            720 cm\n        \u003c/div\u003e\n        ",
+  "className": "empty",
+});
+            marker_1cfcd571b777624ed52790c52b94cfce.setIcon(div_icon_f4a898e046086e14a38dd78a1f59ab75);
+        
+    
+            var marker_a04f4d93bcf439f87230afe676808c3d = L.marker(
+                [51.900851, 5.630828],
+                {
+}
+            ).addTo(map_d54b492cd9461c26ea499f27e337565c);
+        
+    
+            var icon_650a9cbbe525a34646f49046631c47b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "tint",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+            marker_a04f4d93bcf439f87230afe676808c3d.setIcon(icon_650a9cbbe525a34646f49046631c47b9);
+        
+    
+        var popup_b93414fb355c9695c2c28c0daf8e9420 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6d656a7a23e53d4c7e5d11d03810b16b = $(`<div id="html_6d656a7a23e53d4c7e5d11d03810b16b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; padding: 10px; background-color: white; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.3);">         <h4 style="margin: 0 0 10px; font-size: 14px;">Dodewaard Water Depth Scale</h4>         <table style="width: 100%; border-collapse: collapse;">              <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: brown; margin-right: 8px;"></span>                 <b>Low</b>: < 364cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: green; margin-right: 8px;"></span>                 <b>Normal</b>: 366 - 815cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: lightgreen; margin-right: 8px;"></span>                 <b>Slightly raised</b>: 816 - 890cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: yellow; margin-right: 8px;"></span>                 <b>Elevated</b>: 891 - 1030cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: orange; margin-right: 8px;"></span>                 <b>High</b>: 1031 - 1130cm             </td>         </tr>                  <tr>             <td style="padding: 5px; border-bottom: 1px solid #ddd;">                 <span style="display: inline-block; width: 12px; height: 12px; background-color: red; margin-right: 8px;"></span>                 <b>Extremely high</b>: > 1130cm             </td>         </tr>                  </table>     </div>     </div>`)[0];
+                popup_b93414fb355c9695c2c28c0daf8e9420.setContent(html_6d656a7a23e53d4c7e5d11d03810b16b);
+            
+        
+
+        marker_a04f4d93bcf439f87230afe676808c3d.bindPopup(popup_b93414fb355c9695c2c28c0daf8e9420)
+        ;
+
+        
+    
+    
+            marker_a04f4d93bcf439f87230afe676808c3d.bindTooltip(
+                `<div>
+                     Dodewaard: 778 cm
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_64e435040cb59fca0494ee63464da5ca = L.marker(
+                [51.900851, 5.630828],
+                {
+}
+            ).addTo(map_d54b492cd9461c26ea499f27e337565c);
+        
+    
+            var div_icon_f3c3b2df3ef192a988f1b2085e575d61 = L.divIcon({
+  "html": "\n        \u003cdiv style=\"\n            font-size: 10pt; \n            color: black; \n            font-weight: bold; \n            background-color: rgba(255, 255, 255, 0.8); \n            padding: 4px 15px; \n            border-radius: 4px; \n            border: 1px solid #ccc; \n            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);\n            width: fit-content;\n        \"\u003e\n            778 cm\n        \u003c/div\u003e\n        ",
+  "className": "empty",
+});
+            marker_64e435040cb59fca0494ee63464da5ca.setIcon(div_icon_f3c3b2df3ef192a988f1b2085e575d61);
+        
+</script>
+</html>
